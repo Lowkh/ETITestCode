@@ -1,4 +1,4 @@
-print("Hello!") /// fix 3
+print("Hello!") // fix 3
 
 print("This is the addon for feature 1")
 
