@@ -41,7 +41,7 @@ jobs:
       name: Create or Update Project Card
       uses: peter-evans/create-or-update-project-card@v1
       with:
-        project-name: Kanban Board 1
+        project-name: MyProject
         column-name: In Progress
         issue-number: ${{ steps.ciff.outputs.issue-number }}     
        
