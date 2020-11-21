@@ -40,4 +40,4 @@ jobs:
     - name: Create Issue
       if: failure() # OR Check a bool variable you create and toggle as needed
       uses:JasonEtco/create-an-issue@masterenv:
-      GITHUB\_TOKEN:${{ secrets.GITHUB\_TOKEN }}
+        GITHUB\_TOKEN:${{ secrets.GITHUB\_TOKEN }}
