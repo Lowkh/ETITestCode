@@ -11,11 +11,11 @@ def test_add(a,b,result):
 def test_add_negative_positive():
     value = add(-1,2,3)
     assert value == 4
-'''
+
 def test_add_negative_negative():
     value = add(-1,-2)
     assert value == -3
-
+'''
 
 def test_over_ten_variables():
     value = add(1,2,3,4,5,6,7,8,9,10,11)
