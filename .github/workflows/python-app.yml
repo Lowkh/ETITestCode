@@ -49,6 +49,7 @@ jobs:
 
   assign:
     runs-on: ubuntu-latest
+    needs: [build]
     steps:
     - name: add-new-issues-to-repository-based-project-column
       uses: docker://takanabe/github-actions-automate-projects:v0.0.1
