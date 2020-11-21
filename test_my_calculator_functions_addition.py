@@ -13,8 +13,8 @@ def test_add_negative_positive():
     assert value == 4
 '''
 def test_add_negative_negative():
-    value = add(-1,-2)
-    assert value == -3
+    value = add(-1,-4)
+    assert value == -5
 
 
 def test_over_ten_variables():
