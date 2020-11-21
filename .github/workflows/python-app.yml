@@ -35,13 +35,11 @@ jobs:
     - name: Test with pytest
       run: |
            pytest
-    - if: ${{ failure() }}
-      uses: bryannice/gitactions-git-issue-creation@master
+    - uses: JasonEtco/create-an-issue@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_COMMIT_SHA: ${{ github.sha }}
-        GITHUB_REPO_NAME: 'ETITestCode'
-        GITHUB_ISSUE_TITLE: 'Demo''ing Git Issue Creation'
-        GITHUB_ISSUE_BODY: 'Demo''ing Git Issue Creation'
+      id: create-issue
+    - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'
+    - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
 
 
