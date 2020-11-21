@@ -8,7 +8,9 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
+  issues:
+    types: [opened]    
+  
 jobs:
   build:
 
@@ -37,12 +39,15 @@ jobs:
         title: This is a new Issue
         content-filepath: ./.github/ISSUE_TEMPLATE.md
         labels: bug
-    - if: ${{failure()}}
-      name: Assign issues to project
-      uses: technote-space/create-project-card-action@v1
-      with:
-        PROJECT: MyProject
-        COLUMN: To do
+  createCard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create or Update Project Card
+        uses: peter-evans/create-or-update-project-card@v1
+        with:
+          project-name: MyProject
+          column-name: In Progress
+    
        
 
 
