@@ -34,5 +34,5 @@ jobs:
     - name: Test with pytest
       run: |
            pytest
-
+    - name: Write to issues
     - uses: JasonEtco/create-an-issue@v2
