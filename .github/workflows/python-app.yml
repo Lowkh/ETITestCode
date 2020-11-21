@@ -37,11 +37,10 @@ jobs:
            pytest
     - name: The job has failed
       if: ${{ failure() }}
-    - name: open-issue
       uses: rishabhgupta/git-action-issue@v2.0.0
       with:
         title: Title
         body: body
     - run: |
-        echo ${{ steps.issue.outputs.issue }}
-  
+          echo ${{ steps.issue.outputs.issue }}
+
