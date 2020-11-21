@@ -42,11 +42,16 @@ jobs:
   createCard:
     runs-on: ubuntu-latest
     steps:
-      - name: Create or Update Project Card
-        uses: peter-evans/create-or-update-project-card@v1
-        with:
-          project-name: MyProject
-          column-name: In Progress
+    - name: Create Project Card Action
+      # You may pin to the exact commit or the version.
+      # uses: technote-space/create-project-card-action@cfc9e06c6a688315c796e621ab973979b3f86e47
+      uses: technote-space/create-project-card-action@v1.0.3
+      with:
+        # Project name.
+        PROJECT: MyProject 
+        # Column name.
+        COLUMN: In Progress
+
     
        
 
