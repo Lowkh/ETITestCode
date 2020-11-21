@@ -31,11 +31,19 @@ jobs:
            pytest
     - if: ${{failure()}}
       name: Create Issue From File
+      id: ciff
       uses: peter-evans/create-issue-from-file@v2
       with:
-        title: An example issue
+        title: This is a new Issue
         content-filepath: ./.github/ISSUE_TEMPLATE.md
-        labels: report, automated issue
-        project: Kanban Board 1
+        labels: bug
+    - if: ${{failure()}}
+      name: Create or Update Project Card
+      uses: peter-evans/create-or-update-project-card@v1
+      with:
+        project-name: Kanban Board 1
+        column-name: In Progress
+        issue-number: ${{ steps.ciff.outputs.issue-number }}     
+       
 
 
