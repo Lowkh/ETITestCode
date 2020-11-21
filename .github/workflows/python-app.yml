@@ -8,7 +8,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]  
-  
+  issues:
+    types: [opened]  
 jobs:
   build:
 
@@ -45,6 +46,14 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         files: test-results/**/*.xml
 
-    
+  assign:
+    name: Assign issues to project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign issues to project
+        uses: technote-space/create-project-card-action@v1
+        with:
+          PROJECT: MyProject
+          COLUMN: To do    
     
 
