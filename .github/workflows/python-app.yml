@@ -7,9 +7,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
-  issues:
-    types: [opened]    
+    branches: [ main ]  
   
 jobs:
   build:
@@ -39,9 +37,7 @@ jobs:
         title: This is a new Issue
         content-filepath: ./.github/ISSUE_TEMPLATE.md
         labels: bug
-  createCard:
-    runs-on: ubuntu-latest
-    steps:
+    
     - name: Create Project Card Action
       # You may pin to the exact commit or the version.
       # uses: technote-space/create-project-card-action@cfc9e06c6a688315c796e621ab973979b3f86e47
