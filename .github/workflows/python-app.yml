@@ -37,18 +37,14 @@ jobs:
         content-filepath: ./.github/ISSUE_TEMPLATE.md
         labels: bug
     #- if: ${{success()}}
-  cards:
+
+  createCard:
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Create or Update Project Card
         uses: peter-evans/create-or-update-project-card@v1
         with:
           project-name: MyProject
-          column-name: In Progress
-          issue-number: ${{ needs.jobs.steps.ciff.outputs.issue-number }}
-
-    
-       
+          column-name: To Do
 
 
