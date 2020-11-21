@@ -38,7 +38,7 @@ jobs:
           assignees: ${{github.actor}}
           labels: worflow-failed
           body: Workflow failed for commit ${{github.sha}}
-      
-
+          project: Kanban Board 1
+          status: ${{job.status}}
 
 
