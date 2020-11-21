@@ -38,10 +38,10 @@ jobs:
     - name: The job has failed
       if: ${{ failure() }}
       uses: JasonEtco/create-an-issue@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          id: create-issue
-      run: |
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: create-issue
+    - run: |
         'echo Created issue number ${{ steps.create-issue.outputs.number }}'
         'echo Created ${{ steps.create-issue.outputs.url }}'
 
