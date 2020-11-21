@@ -38,15 +38,12 @@ jobs:
         content-filepath: ./.github/ISSUE_TEMPLATE.md
         labels: bug
     
-    - name: Create Project Card Action
-      # You may pin to the exact commit or the version.
-      # uses: technote-space/create-project-card-action@cfc9e06c6a688315c796e621ab973979b3f86e47
-      uses: technote-space/create-project-card-action@v1.0.3
+    - name: Create or Update Project Card
+      uses: peter-evans/create-or-update-project-card@v1
       with:
-        # Project name.
-        PROJECT: MyProject 
-        # Column name.
-        COLUMN: In Progress
+        project-name: My project
+        column-name: My column
+        issue-number: ${{ steps.ciff.outputs.issue-number }}
 
     
        
