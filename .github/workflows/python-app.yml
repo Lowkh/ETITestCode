@@ -37,7 +37,7 @@ jobs:
           token: ${{secrets.GITHUB_TOKEN}}
           assignees: ${{github.actor}}
           labels: worflow-failed
-          body: Workflow failed for commit ${{github.sha}} ${{steps.TestWithPytest}}
+          body: Workflow failed for commit ${{github.sha}} ${{github.run_id}}
 
 
 
