@@ -37,8 +37,8 @@ jobs:
         title: This is a new Issue
         content-filepath: ./.github/ISSUE_TEMPLATE.md
         labels: bug
-    
-    - name: Create or Update Project Card
+    - if: ${{success()}}
+      name: Create or Update Project Card
       uses: peter-evans/create-or-update-project-card@v1
       with:
         project-name: MyProject
