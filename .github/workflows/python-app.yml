@@ -38,12 +38,11 @@ jobs:
         content-filepath: ./.github/ISSUE_TEMPLATE.md
         labels: bug
     - if: ${{failure()}}
-      name: Create or Update Project Card
-      uses: peter-evans/create-or-update-project-card@v1
+      name: Assign issues to project
+      uses: technote-space/create-project-card-action@v1
       with:
-        project-name: MyProject
-        column-name: In Progress
-        issue-number: ${{ steps.ciff.outputs.issue-number }}     
+        PROJECT: MyProject
+        COLUMN: To do
        
 
 
