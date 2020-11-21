@@ -29,16 +29,16 @@ jobs:
     - name: Test with pytest
       run: |
            pytest
-    - if: ${{failure()}}
-      name: Create Issue From File
+    #- if: ${{failure()}}
+    - name: Create Issue From File
       id: ciff
       uses: peter-evans/create-issue-from-file@v2
       with:
         title: This is a new Issue
         content-filepath: ./.github/ISSUE_TEMPLATE.md
         labels: bug
-    - if: ${{success()}}
-      name: Create or Update Project Card
+    #- if: ${{success()}}
+    - name: Create or Update Project Card
       uses: peter-evans/create-or-update-project-card@v1
       with:
         project-name: MyProject
