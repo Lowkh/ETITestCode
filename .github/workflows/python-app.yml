@@ -35,5 +35,5 @@ jobs:
       run: |
         pytest
       if: failure()
-        uses:JasonEtco/create-an-issue@masterenv
+       uses:JasonEtco/create-an-issue@masterenv
      
