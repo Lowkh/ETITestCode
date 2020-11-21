@@ -34,10 +34,7 @@ jobs:
       uses: JasonEtco/create-an-issue@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      id: create-issue
-    - if: ${{failure()}}
-      name: populate issues
-      run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'          
+      
     
 
 
