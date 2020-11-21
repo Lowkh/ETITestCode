@@ -35,4 +35,11 @@ jobs:
       run: |
            pytest
     
-    
+    steps:
+
+- name: Create Documentation
+run: DO STUFF TO CREATE DOCS
+  - name: Create Issue
+if: failure() # OR Check a bool variable you create and toggle as needed
+ uses:JasonEtco/create-an-issue@masterenv:
+GITHUB\_TOKEN:${{ secrets.GITHUB\_TOKEN }}
