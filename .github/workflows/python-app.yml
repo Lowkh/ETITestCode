@@ -35,6 +35,8 @@ jobs:
     - name: Test with pytest
       run: |
            pytest
+           
+    - name: Create Issues
     - uses: JasonEtco/create-an-issue@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
