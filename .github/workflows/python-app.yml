@@ -34,7 +34,7 @@ jobs:
       uses: peter-evans/create-issue-from-file@v2
       with:
         title: An example issue
-        content-filepath: ./github/ISSUE_TEMPLATE.md
+        content-filepath: ./.github/ISSUE_TEMPLATE.md
         labels: report, automated issue
         project: Kanban Board 1
 
