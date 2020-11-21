@@ -26,25 +26,18 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
     - name: Test with pytest
+      id: TestWithPytest
       run: |
            pytest
-    #- if: ${{failure()}}
-    - name: Create Issue From File
-      id: ciff
-      uses: peter-evans/create-issue-from-file@v2
+           
+    - name: Create Issues
+      uses: nashmaniac/create-issue-action@v1.1
       with:
-        title: This is a new Issue
-        content-filepath: ./.github/ISSUE_TEMPLATE.md
-        labels: bug
-    #- if: ${{success()}}
+          title: Build Failed
+          token: ${{secrets.GITHUB_TOKEN}}
+          assignees: ${{github.actor}}
+          labels: worflow-failed
+          body: Workflow failed for commit ${{github.sha}} ${{steps.TestWithPytest.outputs}}
 
-  createCard:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create or Update Project Card
-        uses: peter-evans/create-or-update-project-card@v1
-        with:
-          project-name: MyProject
-          column-name: To Do
 
 
