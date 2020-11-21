@@ -13,8 +13,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{steps.ciff.outputs.issue-number}}
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
@@ -48,7 +46,7 @@ jobs:
         with:
           project-name: MyProject
           column-name: In Progress
-          issue-number: ${{ needs.jobs.outputs.output1 }}
+          issue-number: ${{ needs.jobs.steps.ciff.outputs.issue-number }}
 
     
        
