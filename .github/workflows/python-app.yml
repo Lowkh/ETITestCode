@@ -37,10 +37,11 @@ jobs:
            pytest
     - name: The job has failed
       if: ${{ failure() }}
-      uses: JasonEtco/create-an-issue@v2
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-    - run: 'echo Created issue number ${{ steps.create-issue.outputs.number }}'
-    - run: 'echo Created ${{ steps.create-issue.outputs.url }}'
-    
+    - name: open-issue
+      uses: rishabhgupta/git-action-issue@v2.0.0
+      with:
+        title: Title
+        body: body
+    - run: |
+        echo ${{ steps.issue.outputs.issue }}
+  
