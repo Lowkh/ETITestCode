@@ -37,7 +37,12 @@ jobs:
           token: ${{secrets.GITHUB_TOKEN}}
           assignees: ${{github.actor}}
           labels: worflow-failed
-          body: Workflow failed for commit ${{github.sha}} ${{github.run_id}}
-
-
+          body: Workflow failed for commit ${{github.sha}} @ ${{github.ref}}
+    - name: curl
+      uses: 4thel00z/curl-github-action@master
+      with:
+        args: https://httpbin.org/get
+    
+    
+    
 
