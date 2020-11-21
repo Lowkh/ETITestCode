@@ -36,4 +36,4 @@ jobs:
         pytest
       if: failure()
         uses:JasonEtco/create-an-issue@masterenv
-        GITHUB\_TOKEN:${{ secrets.GITHUB\_TOKEN }}
+     
