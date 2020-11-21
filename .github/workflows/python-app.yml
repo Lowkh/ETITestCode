@@ -36,6 +36,6 @@ jobs:
         title: An example issue
         content-filepath: ./github/ISSUE_TEMPLATE.md
         labels: report, automated issue
-        poject: Kanban Board 1
+        project: Kanban Board 1
 
 
