@@ -34,9 +34,7 @@ jobs:
     - name: Test with pytest
       run: |
            pytest
-    
-    steps:
-
+  
     - name: Create Issue
       if: failure() # OR Check a bool variable you create and toggle as needed
       uses:JasonEtco/create-an-issue@masterenv:
