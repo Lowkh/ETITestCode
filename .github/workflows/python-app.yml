@@ -30,15 +30,12 @@ jobs:
       run: |
            pytest
     - if: ${{failure()}}
-      name: Create Issues
-      uses: nashmaniac/create-issue-action@v1.1
+      name: Create Issue From File
+      uses: peter-evans/create-issue-from-file@v2
       with:
-          title: Build Failed
-          token: ${{secrets.GITHUB_TOKEN}}
-          assignees: ${{github.actor}}
-          labels: worflow-failed
-          body: Workflow failed for commit ${{github.sha}}
-          project: Kanban Board 1
-          status: ${{job.status}}
+        title: An example issue
+        content-filepath: ./github/ISSUE_TEMPLATE.md
+        labels: report, automated issue
+        poject: Kanban Board 1
 
 
