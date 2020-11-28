@@ -1,9 +1,10 @@
 name: Build and Deploy
-on:
-  push:
-    branches:
-      - master
 
+on:
+  create:
+    tags:
+      - v*
+        
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
