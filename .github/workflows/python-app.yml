@@ -31,7 +31,6 @@ jobs:
       id: TestWithPytest
       run: |
            pytest -v --junitxml=report.xml
-           python -m pydoc ./doc
     - if: ${{failure()}}       
       name: Create Issues
       uses: nashmaniac/create-issue-action@v1.1
@@ -48,18 +47,12 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         files: report.xml
+    - uses: actions/checkout@v2
+    - name: Generate Python Docs
+      uses: jbheard/markdown-docs@v1
+    - name: Open docs update PR
+      uses: peter-evans/create-pull-request@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
-  assign:
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-    - name: add-new-issues-to-repository-based-project-column
-      uses: docker://takanabe/github-actions-automate-projects:v0.0.1
-      if: github.event_name == 'pull_request' && github.event.action == 'opened'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_PROJECT_URL: https://github.com/Lowkh/ETITestCode/projects/2
-        GITHUB_PROJECT_COLUMN_NAME: To do
-
-    
 
