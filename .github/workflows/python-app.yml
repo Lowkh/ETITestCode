@@ -29,6 +29,8 @@ jobs:
       id: TestWithPytest
       run: |
            pytest -v --junitxml=report.xml
+           mkdir doc
+           python -m pydoc ./doc
     - if: ${{failure()}}       
       name: Create Issues
       uses: nashmaniac/create-issue-action@v1.1
