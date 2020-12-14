@@ -41,8 +41,8 @@ jobs:
       uses: benday-inc/download-latest-artifact@main
       with:
         token: ${{ secrets.ACTION_SECRET }}'
-        repository_owner: 'benday'
-        repository_name: 'actionsdemo'
+        repository_owner: 'Lowkh'
+        repository_name: 'ETITestCode'
         workflow_name: 'Python Documentation'  
         branch_name: 'master'
         download_path: '${{ github.workspace }}/temp'
