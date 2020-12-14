@@ -40,7 +40,7 @@ jobs:
     - name: download workflow artifact
       uses: benday-inc/download-latest-artifact@main
       with:
-        token: ${{ secrets.ACTION_SECRET }}'
+        token: ${{ secrets.ACTION_SECRET }}
         repository_owner: 'Lowkh'
         repository_name: 'ETITestCode'
         workflow_name: 'Python Documentation'  
