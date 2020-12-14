@@ -36,14 +36,35 @@ jobs:
       with:
         name: assetDocuments
         path: downloads
-
-    - name: download workflow artifact
-      uses: benday-inc/download-latest-artifact@main
+  release-project:
+    name: Release Project
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Download Content
+      uses: actions/download-artifact@v2
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        repository_owner: 'Lowkh'
-        repository_name: 'ETITestCode'
-        workflow_name: 'Python Documentation'  
-        branch_name: 'main'
-        download_path: '${{ github.workspace }}/downloads'
-        download_filename: 'assetDocuments.zip'
+        name: content-build
+    - name: Create GitHub release
+      id: create-new-release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.run_number }}
+        release_name: Release ${{ github.run_number }} 
+    
+    - name: Archive site content
+      uses: thedoctor0/zip-release@master
+      with:
+        filename: site.zip
+    
+    - name: Upload release asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+        asset_path: ./site.zip
+        asset_name: site-v${{ github.run_number }}.zip
+        asset_content_type: application/zip
