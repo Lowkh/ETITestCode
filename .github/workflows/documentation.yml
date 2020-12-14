@@ -45,5 +45,5 @@ jobs:
         repository_name: 'ETITestCode'
         workflow_name: 'Python Documentation'  
         branch_name: 'main'
-        download_path: '${{ github.workspace }}/temp'
+        download_path: '${{ github.workspace }}/downloads'
         download_filename: 'assetDocuments.zip'
