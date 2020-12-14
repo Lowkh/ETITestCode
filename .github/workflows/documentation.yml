@@ -36,3 +36,10 @@ jobs:
       with:
         name: assetDocuments
         path: downloads
+
+    - name: download workflow artifact
+      uses: benday-inc/download-latest-artifact@main
+      with:
+       branch_name: 'master'
+       download_path: '${{ github.workspace }}/temp'
+       download_filename: 'actionsdemo-artifact.zip'
