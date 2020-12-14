@@ -40,6 +40,10 @@ jobs:
     - name: download workflow artifact
       uses: benday-inc/download-latest-artifact@main
       with:
-       branch_name: 'master'
-       download_path: '${{ github.workspace }}/temp'
-       download_filename: 'actionsdemo-artifact.zip'
+        token: ${{ secrets.ACTION_SECRET }}'
+        repository_owner: 'benday'
+        repository_name: 'actionsdemo'
+        workflow_name: 'Python Documentation'  
+        branch_name: 'master'
+        download_path: '${{ github.workspace }}/temp'
+        download_filename: 'actionsdemo-artifact.zip'
