@@ -44,6 +44,6 @@ jobs:
         repository_owner: 'Lowkh'
         repository_name: 'ETITestCode'
         workflow_name: 'Python Documentation'  
-        branch_name: 'master'
+        branch_name: 'main'
         download_path: '${{ github.workspace }}/temp'
         download_filename: 'actionsdemo-artifact.zip'
