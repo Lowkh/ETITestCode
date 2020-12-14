@@ -40,7 +40,7 @@ jobs:
     - name: Download Content
       uses: actions/download-artifact@v2
       with:
-        name: assetDocument.zip
+        name: assetDocuments
     - name: Create GitHub release
       id: create-new-release
       uses: actions/create-release@v1
