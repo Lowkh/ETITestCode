@@ -52,3 +52,8 @@ jobs:
     - name: Download all workflow run artifacts
       uses: actions/download-artifact@v2
 
+    - name: Archive results
+      uses: actions/upload-artifact@v2
+        with:
+        name: report.xml
+        path: output/test/report.xml
