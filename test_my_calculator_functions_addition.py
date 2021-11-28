@@ -7,7 +7,7 @@ def test_add(a,b,result):
     value = add(a,b)
     assert value == result
 
-
+'''
 def test_add_negative_positive():
     value = add(-1,2,3)
     assert value == 4
@@ -33,4 +33,4 @@ def test_over_ten_variables():
     """
     value = add(1,2,3,4,5,6,7,8,9,10,11, 12)
     assert value == "Error: >10 Values" ##
-
+'''
