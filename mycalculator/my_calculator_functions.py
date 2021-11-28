@@ -2,8 +2,7 @@ def add(*arg):
     if(len(arg)>10):
        print("this is another easter")
        return "Error: >10 Values"
-
-'''    
+ 
     if(len(arg) > 10):
         print("Error >10 values given!")
         return "Error: >10 Values"
@@ -58,7 +57,3 @@ def divide(*arg):
         return ZeroDivisionError
 
     
-
-
-  
-'''
