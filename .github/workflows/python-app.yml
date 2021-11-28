@@ -24,7 +24,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest pytest-cov
         # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    
+    - name: Label the PR Size
+      uses: coverwallet/pr-labeler@v1.2.1
+      with:
+          xs_max_size: '10'
+          s_max_size: '100'
+          m_max_size: '500'
+          l_max_size: '1000'
+          exclude_files: '.txt'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
     - name: Test with pytest
       id: TestWithPytest
       run: |
